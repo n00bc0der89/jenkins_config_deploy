@@ -1,10 +1,11 @@
 pipeline {
-
+    agent any
+    
     stages {
             stage("Deploy config to test server"){
                 steps{
                     echo "Deploying config to Test server"
-                    
+
                 }
             }
 
