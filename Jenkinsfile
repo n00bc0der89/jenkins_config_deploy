@@ -1,5 +1,5 @@
 pipeline {
-
+    agent any
     stages {
             stage("Deploy config to test server"){
                 steps{
