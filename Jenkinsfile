@@ -22,7 +22,7 @@ pipeline {
                             remote.user = "${TEST_SERVER_CREDENTIALS_USR}"
                             remote.password = "${TEST_SERVER_CREDENTIALS_PSW}"
                             //sshCommand remote: remote, command: "mv $test_server_deployment_path ${test_server_deployment_path}_old"
-                            sshPut remote: remote, from: config_file_path, into: test_server_deployment_path override: true
+                            sshPut remote: remote, from: config_file_path, into: test_server_deployment_path, override: true
 
                     }
                   
