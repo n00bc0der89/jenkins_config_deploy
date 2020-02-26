@@ -21,7 +21,7 @@ pipeline {
                             echo "Deploying config to Test server"
                             remote.user = "${TEST_SERVER_CREDENTIALS_USR}"
                             remote.password = "${TEST_SERVER_CREDENTIALS_PSW}"
-                            //sshCommand remote: remote, command: "mv $test_server_deployment_path ${test_server_deployment_path}_old"
+                            sshCommand remote: remote, command: "timestamp=`date +\"%T\"`; mv $test_server_deployment_path/$config_file_path $test_server_deployment_path/$config_file_path_$timestamp"
                             sshPut remote: remote, from: config_file_path, into: test_server_deployment_path, override: true
 
                     }
