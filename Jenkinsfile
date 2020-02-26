@@ -17,10 +17,14 @@ pipeline {
             stage("Deploy config to test server"){
                 steps   
                 {
-                    echo "Deploying config to Test server"
-                    remote.user = $TEST_SERVER_CREDENTIALS_USR
-                    remote.password = $TEST_SERVER_CREDENTIALS_PSW
-                    sshPut remote: remote, from: config_file_path, into: 'test_server_deployment_path'
+                    script {
+                            echo "Deploying config to Test server"
+                            remote.user = $TEST_SERVER_CREDENTIALS_USR
+                            remote.password = $TEST_SERVER_CREDENTIALS_PSW
+                            sshPut remote: remote, from: config_file_path, into: 'test_server_deployment_path'
+
+                    }
+                  
                 }
             }
 
