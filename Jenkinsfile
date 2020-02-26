@@ -21,7 +21,7 @@ pipeline {
                             echo "Deploying config to Test server"
                             remote.user = "${TEST_SERVER_CREDENTIALS_USR}"
                             remote.password = "${TEST_SERVER_CREDENTIALS_PSW}"
-                        sshCommand remote: remote, command: "timestamp=\$(date +%s); echo $timestamp; mv ${test_server_deployment_path}/${config_file_path} ${test_server_deployment_path}/${config_file_path}_$timestamp"
+                        sshCommand remote: remote, command: "mv ${test_server_deployment_path}/${config_file_path} ${test_server_deployment_path}/${config_file_path}_\$(date +%s)"
                             sshPut remote: remote, from: config_file_path, into: test_server_deployment_path
 
                     }
